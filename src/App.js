@@ -184,7 +184,7 @@ const RenovateDesignWebsite = () => {
     <div className="text-center mb-16">
       <p className="text-blue-500 font-medium mb-2">OUR EXPERTISE</p>
       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Luxury <span className="text-blue-500">Services</span>
+      <span className="text-black">Services</span>
       </h2>
       <p className="text-xl text-gray-600 max-w-3xl mx-auto">
         From complete renovations to specialist joinery, we deliver exceptional craftsmanship across all areas 
@@ -339,20 +339,20 @@ const RenovateDesignWebsite = () => {
       </section>
 
               {/* About Section */}
-        <section id="about" className="py-20 bg-white">
+        <section id="about" className="py-16 bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 About Renovate Design
               </h2>
               <div className="max-w-4xl mx-auto">
-                <p className="text-xl text-gray-600 mb-6">
+                <p className="text-xl text-white mb-6">
                   Renovate Design is a home renovation company designated by design. We handle and organise your projects from start to finish and there is never a job too small!
                 </p>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="text-lg text-white mb-6">
                   We prize ourselves on high-end finishings, tidiness and punctuality.
                 </p>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-white">
                   Specialising in home improvements across Renfrewshire, Inverclyde, Glasgow and surrounding areas.
                 </p>
               </div>
@@ -481,10 +481,8 @@ const RenovateDesignWebsite = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="lg:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-10 h-10 bg-blue-500 rounded flex items-center justify-center">
-                  <span className="text-white font-bold">R</span>
-                </div>
+              <div className="flex items-center space-x-3 mb-4">
+            <img src="/logo2.png" alt="Renovate Design Logo" className="h-12 w-auto" />
                 <div>
                   <div className="font-bold text-lg">Renovate Design</div>
                   <div className="text-sm text-gray-400">Premium Home Renovations</div>
