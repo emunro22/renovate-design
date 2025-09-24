@@ -7,6 +7,7 @@ import kitchenService from "./assets/kitchen-service.jpg";
 import bathroomService from "./assets/bathroom-service.jpg";
 import joineryService from "./assets/joinery-service.jpg";
 import interiorService from "./assets/interior-service.jpg";
+import { Link } from "react-router-dom";
 
 
 const slides = [
@@ -44,7 +45,7 @@ const RenovateDesignWebsite = () => {
         <div className="min-h-screen bg-white">
           {/* Header */}
           <header className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-2">
                 {/* Logo */}
                 <div className="flex items-center space-x-2">
@@ -56,9 +57,25 @@ const RenovateDesignWebsite = () => {
                 </div>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center space-x-6 text-sm">
+                <nav className="hidden md:flex items-center space-x-6 text-sm relative">
                   <a href="#home" className="text-gray-700 hover:text-blue-500 font-medium">Home</a>
-                  <a href="#services" className="text-gray-700 hover:text-blue-500 font-medium">Services</a>
+
+                  {/* Services Dropdown */}
+                  <div className="relative group">
+                    <a
+                      href="#services"
+                      className="text-gray-700 hover:text-blue-500 font-medium flex items-center"
+                    >
+                      Services ▾
+                    </a>
+                    <div className="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      <Link to="/kitchens" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kitchens</Link>
+                      <Link to="/bathrooms" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Bathrooms</Link>
+                      <Link to="/joinery" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Joinery</Link>
+                      <Link to="/interiors" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Interiors</Link>
+                    </div>
+                  </div>
+
                   <a href="#about" className="text-gray-700 hover:text-blue-500 font-medium">About</a>
                   <a href="#contact" className="text-gray-700 hover:text-blue-500 font-medium">Contact</a>
                 </nav>
@@ -78,7 +95,7 @@ const RenovateDesignWebsite = () => {
                 </button>
               </div>
             </div>
-          </header>   {/* ✅ keep this one only */}
+          </header>
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
@@ -146,7 +163,7 @@ const RenovateDesignWebsite = () => {
 
 
 {/* Services Section */}
-<section id="services" className="py-20 bg-gray-50">
+<section id="services" className="scroll-mt-32 py-20 bg-gray-50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-16">
       <p className="text-blue-500 font-medium mb-2">OUR EXPERTISE</p>
@@ -176,20 +193,23 @@ const RenovateDesignWebsite = () => {
           </div>
         </div>
         <div className="p-6">
-          <p className="text-gray-600 mb-6">
-            Our services begin from your ideas, whether it's a completely new kitchen or just adaptations to your current one, even if it's only changing the worktops. At Renovate Design we will design a kitchen best suited for your lifestyle and home. Supplying and fitting different brands of kitchens across Glasgow and the West.
-          </p>
-          <ul className="space-y-2 mb-6 text-sm">
-            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Complete kitchen renovations</li>
-            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Worktop replacements</li>
-            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Custom design solutions</li>
-            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Multiple brand options</li>
-            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Project management from start to finish</li>
-          </ul>
-          <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors">
-            Learn More →
-          </button>
-        </div>
+            <p className="text-gray-600 mb-6">
+                Our services begin from your ideas, whether it's a completely new kitchen or just adaptations to your current one, even if it's only changing the worktops. At Renovate Design we will design a kitchen best suited for your lifestyle and home. Supplying and fitting different brands of kitchens across Glasgow and the West.
+            </p>
+            <ul className="space-y-2 mb-6 text-sm">
+                <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Complete kitchen renovations</li>
+                <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Worktop replacements</li>
+                <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Custom design solutions</li>
+                <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Multiple brand options</li>
+                <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Project management from start to finish</li>
+            </ul>
+            <Link
+                to="/kitchens"
+                className="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors"
+            >
+                Learn More →
+            </Link>
+            </div>
       </div>
 
       {/* Premium Bathrooms */}
@@ -218,9 +238,12 @@ const RenovateDesignWebsite = () => {
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Space optimization</li>
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Budget-friendly ranges</li>
           </ul>
-          <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors">
-            Learn More →
-          </button>
+                  <Link
+          to="/bathrooms"
+          className="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors"
+        >
+          Learn More →
+        </Link>
         </div>
       </div>
     </div>
@@ -251,9 +274,12 @@ const RenovateDesignWebsite = () => {
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Balustrades & banisters</li>
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Sliding & fitted wardrobes</li>
           </ul>
-          <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors">
-            Learn More →
-          </button>
+                  <Link
+          to="/joinery"
+          className="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors"
+        >
+          Learn More →
+        </Link>
         </div>
       </div>
 
@@ -282,9 +308,12 @@ const RenovateDesignWebsite = () => {
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Project coordination</li>
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Style guidance</li>
           </ul>
-          <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors">
-            Learn More →
-          </button>
+                  <Link
+          to="/interiors"
+          className="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors"
+        >
+          Learn More →
+        </Link>
         </div>
       </div>
     </div>
@@ -293,7 +322,7 @@ const RenovateDesignWebsite = () => {
 
 
               {/* About Section */}
-        <section id="about" className="py-16 bg-gray-800">
+        <section id="about" className="scroll-mt-32 py-16 bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -367,7 +396,7 @@ const RenovateDesignWebsite = () => {
         </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50">
+      <section id="contact" className="scroll-mt-32 py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Get In Touch</h2>
