@@ -43,15 +43,15 @@ const RenovateDesignWebsite = () => {
   return (
         <div className="min-h-screen bg-white">
           {/* Header */}
-          <header className="bg-white shadow-sm relative z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <header className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-2">
                 {/* Logo */}
                 <div className="flex items-center space-x-2">
                   <img 
                     src="/logo.png" 
                     alt="Renovate Design Logo" 
-                    className="h-12 w-auto"
+                    className="h-20 w-auto"
                   />
                 </div>
 
@@ -82,100 +82,67 @@ const RenovateDesignWebsite = () => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden bg-white border-t">
-              <div className="px-4 py-2 space-y-2">
-                <a href="#home" className="block py-2 text-gray-700">Home</a>
-                <a href="#services" className="block py-2 text-gray-700">Services</a>
-                <a href="#about" className="block py-2 text-gray-700">About</a>
-                <a href="#contact" className="block py-2 text-gray-700">Contact</a>
-                <div className="flex items-center space-x-2 text-blue-500 py-2">
-                  <Phone className="w-4 h-4" />
-                  <span>07505 541466</span>
-                </div>
+            <div className="md:hidden fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6">
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="absolute top-4 right-4 p-2"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <a href="#home" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Home</a>
+              <a href="#services" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Services</a>
+              <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">About</a>
+              <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Contact</a>
+              <div className="flex items-center space-x-2 text-blue-500 text-lg">
+                <Phone className="w-5 h-5" />
+                <span>07505 541466</span>
               </div>
             </div>
           )}
 
 
-        {/* Hero Section */}
-        <section id="home" className="relative h-screen overflow-hidden">
-          {/* Background Slides */}
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
-                index === currentSlide ? "opacity-100" : "opacity-0"
-              }`}
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-            </div>
-          ))}
+{/* Hero Section */}
+<section
+  id="home"
+  className="relative min-h-screen bg-gray-400 flex flex-col items-center justify-center text-center text-gray-900 px-4"
+>
+  <div className="relative z-10 max-w-3xl mx-auto">
 
-          {/* Hero Content */}
-          <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-block bg-gray-700 bg-opacity-50 rounded-full px-6 py-2 mb-8">
-                <span className="text-sm font-medium">PREMIUM HOME RENOVATIONS</span>
-              </div>
+    {/* Tag */}
+    <div className="inline-block bg-gray-200 rounded-full px-4 py-1 mt-6 mb-10">
+      <span className="text-xs sm:text-sm font-medium tracking-wide text-gray-700">
+        PREMIUM HOME RENOVATIONS
+      </span>
+    </div>
 
-              {/* Logo */}
-              <div className="mb-6 flex justify-center">
-                <img 
-                  src="/logo2.png" 
-                  alt="Renovate Design Logo" 
-                  className="max-h-85 md:max-h-85 w-auto"
-                />
-              </div>
+    {/* Logo (bigger now) */}
+    <div className="mb-6 flex justify-center">
+      <img 
+        src="/logo.png" 
+        alt="Renovate Design Logo" 
+        className="max-h-80 sm:max-h-96 w-auto"
+      />
+    </div>
 
-              {/* Service Tags */}
-              <div className="flex flex-wrap justify-center gap-4 mb-10 text-sm">
-                <span className="border-l-4 border-blue-500 pl-2 text-white">Joinery</span>
-                <span className="border-l-4 border-blue-500 pl-2 text-white">Kitchens</span>
-                <span className="border-l-4 border-blue-500 pl-2 text-white">Bathrooms</span>
-                <span className="border-l-4 border-blue-500 pl-2 text-white">Interiors</span>
-              </div>
+    {/* Service Tags */}
+    <div className="flex flex-wrap justify-center gap-3 mb-6 text-xs sm:text-sm text-gray-900">
+      <span className="border-l-4 border-blue-500 pl-2">Joinery</span>
+      <span className="border-l-4 border-blue-500 pl-2">Kitchens</span>
+      <span className="border-l-4 border-blue-500 pl-2">Bathrooms</span>
+      <span className="border-l-4 border-blue-500 pl-2">Interiors</span>
+    </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-colors">
-                  Explore Our Work →
-                </button>
-                <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-medium transition-colors">
-                  Free Consultation
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Carousel Controls */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full transition-all z-20"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full transition-all z-20"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Carousel Dots */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
-                }`}
-              />
-            ))}
-          </div>
-        </section>
+    {/* CTA Buttons */}
+    <div className="flex flex-col sm:flex-row justify-center gap-4">
+      <button className="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium text-sm md:text-base shadow-md transition-all">
+        Explore Our Work →
+      </button>
+      <button className="inline-flex items-center justify-center border border-black text-black hover:bg-black hover:text-white px-6 py-3 rounded-md font-medium text-sm md:text-base shadow-md transition-all">
+        Free Consultation
+      </button>
+    </div>
+  </div>
+</section>
 
 
 {/* Services Section */}
@@ -204,7 +171,7 @@ const RenovateDesignWebsite = () => {
             <UtensilsCrossed className="w-6 h-6 text-white" />
           </div>
           <div className="absolute bottom-4 left-4 text-white z-10">
-            <p className="text-sm text-orange-500 mb-1">FROM CONCEPT TO COMPLETION</p>
+            <p className="text-sm text-orange-500 mb-1">FROM DESIGN TO DELIVERY</p>
             <h3 className="text-2xl font-bold">Luxury Kitchens</h3>
           </div>
         </div>
@@ -259,7 +226,7 @@ const RenovateDesignWebsite = () => {
     </div>
 
     <div className="grid lg:grid-cols-2 gap-8">
-      {/* Bespoke Joinery */}
+      {/* Joinery */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
         <div
           className="h-64 bg-cover bg-center relative"
@@ -271,7 +238,7 @@ const RenovateDesignWebsite = () => {
           </div>
           <div className="absolute bottom-4 left-4 text-white z-10">
             <p className="text-sm text-orange-500 mb-1">CRAFTED TO PERFECTION</p>
-            <h3 className="text-2xl font-bold">Bespoke Joinery</h3>
+            <h3 className="text-2xl font-bold">Joinery</h3>
           </div>
         </div>
         <div className="p-6">
@@ -325,19 +292,6 @@ const RenovateDesignWebsite = () => {
 </section>
 
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gray-800">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Home?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Every project begins with understanding your vision. Let's discuss how we can bring your dream space to life.
-          </p>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors">
-            Start Your Project
-          </button>
-        </div>
-      </section>
-
               {/* About Section */}
         <section id="about" className="py-16 bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -346,63 +300,67 @@ const RenovateDesignWebsite = () => {
                 About Renovate Design
               </h2>
               <div className="max-w-4xl mx-auto">
-                <p className="text-xl text-white mb-6">
+                <p className="ttext-xl text-gray-300 mb-8">
                   Renovate Design is a home renovation company designated by design. We handle and organise your projects from start to finish and there is never a job too small!
                 </p>
-                <p className="text-lg text-white mb-6">
+                <p className="text-xl text-gray-300 mb-8">
                   We prize ourselves on high-end finishings, tidiness and punctuality.
                 </p>
-                <p className="text-lg text-white">
+                <p className="text-xl text-gray-300 mb-8  ">
                   Specialising in home improvements across Renfrewshire, Inverclyde, Glasgow and surrounding areas.
                 </p>
               </div>
             </div>
 
             {/* Features Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-blue-500" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">High-End Finishings</h3>
-                <p className="text-gray-600">We pride ourselves on exceptional quality and attention to detail in every project.</p>
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-blue-500" />
               </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-blue-500" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Punctuality</h3>
-                <p className="text-gray-600">Reliable service with projects completed on time and to specification.</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-blue-500" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Expert Team</h3>
-                <p className="text-gray-600">Skilled tradespeople working together to make your house become your home.</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-8 h-8 text-blue-500" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Local Coverage</h3>
-                <p className="text-gray-600">Serving Renfrewshire, Inverclyde, Glasgow and surrounding areas.</p>
-              </div>
+              <h3 className="text-xl font-bold text-gray-300 mb-2">High-End Finishings</h3>
+              <p className="text-gray-200">We pride ourselves on exceptional quality and attention to detail in every project.</p>
             </div>
+
+            {/* ✅ Replaced Punctuality card */}
+            <div className="text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8 text-blue-500" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-300 mb-2">Reliability</h3>
+              <p className="text-gray-200">A reliable company that shows up when they say they will. Your time is valuable, we don’t want to waste it.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-blue-500" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-300 mb-2">Expert Team</h3>
+              <p className="text-gray-200">Skilled tradespeople working together to make your house become your home.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-8 h-8 text-blue-500" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-300 mb-2">Local Coverage</h3>
+              <p className="text-gray-200">Serving Renfrewshire, Inverclyde, Glasgow and surrounding areas.</p>
+            </div>
+          </div>
 
             {/* Quality Badges */}
             <div className="flex flex-wrap justify-center gap-8 text-center">
               <div className="flex items-center space-x-2">
                 <CheckCircle className="w-5 h-5 text-blue-500" />
-                <span className="text-gray-700 font-medium">Quality Guaranteed</span>
+                <span className="text-gray-500 font-medium">Quality Guaranteed</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Users className="w-5 h-5 text-blue-500" />
-                <span className="text-gray-700 font-medium">Expert Craftsmen</span>
+                <span className="text-gray-500 font-medium">Expert Craftsmen</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Clock className="w-5 h-5 text-blue-500" />
-                <span className="text-gray-700 font-medium">On-Time Delivery</span>
+                <span className="text-gray-500 font-medium">On-Time Delivery</span>
               </div>
             </div>
           </div>
@@ -419,7 +377,8 @@ const RenovateDesignWebsite = () => {
           </div>
 
           {/* Contact Info Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+            {/* Phone */}
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-8 h-8 text-blue-500" />
@@ -427,13 +386,40 @@ const RenovateDesignWebsite = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-2">Phone</h3>
               <p className="text-gray-600">07505 541466</p>
             </div>
+
+            {/* Instagram */}
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-8 h-8 text-blue-500" />
+                <i className="fab fa-instagram text-2xl text-blue-500"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Email</h3>
-              <p className="text-gray-600">info@renovatedesign.co.uk</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Instagram</h3>
+              <a 
+                href="https://www.instagram.com/renovatedesign_?igsh=MTYzMmdsNWJuOGtuNA==" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-500 hover:underline"
+              >
+                @renovatedesign_
+              </a>
             </div>
+
+            {/* TikTok */}
+            <div className="text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i className="fab fa-tiktok text-2xl text-blue-500"></i>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">TikTok</h3>
+              <a 
+                href="https://www.tiktok.com/@renovate.design?lang=en" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-500 hover:underline"
+              >
+                @renovate.design
+              </a>
+            </div>
+
+            {/* Service Areas */}
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8 text-blue-500" />
@@ -441,6 +427,8 @@ const RenovateDesignWebsite = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-2">Service Areas</h3>
               <p className="text-gray-600">Glasgow, Renfrewshire, Inverclyde & Surrounding Areas</p>
             </div>
+
+            {/* Working Hours */}
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-blue-500" />
@@ -462,10 +450,6 @@ const RenovateDesignWebsite = () => {
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
               </button>
-              <button className="bg-transparent border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors flex items-center justify-center">
-                <Mail className="w-4 h-4 mr-2" />
-                Email Us
-              </button>
             </div>
             <p className="text-gray-900 font-semibold">
               <span className="text-blue-500">No job too small!</span> From complete renovations to minor improvements, we handle projects of all 
@@ -475,62 +459,87 @@ const RenovateDesignWebsite = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Company Info */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center space-x-3 mb-4">
-            <img src="/logo2.png" alt="Renovate Design Logo" className="h-12 w-auto" />
-                <div>
-                  <div className="font-bold text-lg">Renovate Design</div>
-                  <div className="text-sm text-gray-400">Premium Home Renovations</div>
+          {/* Footer */}
+          <footer className="bg-gray-800 text-white py-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* Company Info */}
+                <div className="lg:col-span-2">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <img src="/logo.png" alt="Renovate Design Logo" className="h-12 w-auto" />
+                    <div>
+                      <div className="font-bold text-lg">Renovate Design</div>
+                      <div className="text-sm text-gray-400">Premium Home Renovations</div>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 mb-6 max-w-md">
+                    Professional home renovation company specializing in kitchens, bathrooms, joinery, and interior design across 
+                    Glasgow and surrounding areas.
+                  </p>
                 </div>
-              </div>
-              <p className="text-gray-300 mb-6 max-w-md">
-                Professional home renovation company specializing in kitchens, bathrooms, joinery, and interior design across 
-                Glasgow and surrounding areas.
-              </p>
-            </div>
 
-            {/* Our Services */}
-            <div>
-              <h4 className="font-bold text-lg mb-4">Our Services</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>Kitchen Design & Installation</li>
-                <li>Bathroom Renovations</li>
-                <li>Custom Joinery & Panelling</li>
-                <li>Built-in Shelving</li>
-                <li>Interior Design</li>
-              </ul>
-            </div>
+                {/* Our Services */}
+                <div>
+                  <h4 className="font-bold text-lg mb-4">Our Services</h4>
+                  <ul className="space-y-2 text-gray-300">
+                    <li>Kitchens</li>
+                    <li>Bathrooms</li>
+                    <li>Joinery</li>
+                    <li>Interior Design</li>
+                    <li>Trade Supply</li>
+                  </ul>
+                </div>
 
             {/* Get In Touch */}
             <div>
               <h4 className="font-bold text-lg mb-4">Get In Touch</h4>
               <div className="space-y-3 text-gray-300">
+                {/* Phone */}
                 <div className="flex items-center">
                   <Phone className="w-4 h-4 mr-2 text-blue-500" />
                   <span>07505 541466</span>
                 </div>
-                <div className="flex items-center">
-                  <Mail className="w-4 h-4 mr-2 text-blue-500" />
-                  <span>info@renovatedesign.co.uk</span>
-                </div>
+
+                {/* Location */}
                 <div className="flex items-start">
                   <MapPin className="w-4 h-4 mr-2 text-blue-500 mt-1" />
                   <span>Serving Glasgow, Renfrewshire, Inverclyde & Surrounding Areas</span>
                 </div>
+
+                {/* Social Media */}
+                <div className="flex flex-col space-y-2 mt-4">
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/renovatedesign_?igsh=MTYzMmdsNWJuOGtuNA=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-300 hover:text-blue-400"
+                  >
+                    <i className="fab fa-instagram text-xl mr-2 text-blue-500"></i>
+                    <span>@renovatedesign_</span>
+                  </a>
+
+                  {/* TikTok */}
+                  <a
+                    href="https://www.tiktok.com/@renovate.design?lang=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-300 hover:text-blue-400"
+                  >
+                    <i className="fab fa-tiktok text-xl mr-2 text-blue-500"></i>
+                    <span>@renovate.design</span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+              </div> {/* ✅ closes the grid wrapper */}
 
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Renovate Design. All rights reserved. | Professional home renovations across Scotland.</p>
-          </div>
-        </div>
-      </footer>
+              {/* Copyright */}
+              <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Renovate Design. All rights reserved. | Professional home renovations across Scotland.</p>
+              </div>
+            </div>
+          </footer>
     </div>
   );
 };
