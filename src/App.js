@@ -172,7 +172,7 @@ const RenovateDesignWebsite = () => {
           </div>
           <div className="absolute bottom-4 left-4 text-white z-10">
             <p className="text-sm text-orange-500 mb-1">FROM DESIGN TO DELIVERY</p>
-            <h3 className="text-2xl font-bold">Luxury Kitchens</h3>
+            <h3 className="text-2xl font-bold">Kitchens</h3>
           </div>
         </div>
         <div className="p-6">
@@ -204,7 +204,7 @@ const RenovateDesignWebsite = () => {
           </div>
           <div className="absolute bottom-4 left-4 text-white z-10">
             <p className="text-sm text-orange-500 mb-1">PRECISION IN EVERY DETAIL</p>
-            <h3 className="text-2xl font-bold">Premium Bathrooms</h3>
+            <h3 className="text-2xl font-bold">Bathrooms</h3>
           </div>
         </div>
         <div className="p-6">
@@ -377,7 +377,7 @@ const RenovateDesignWebsite = () => {
           </div>
 
           {/* Contact Info Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-16">
             {/* Phone */}
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -400,6 +400,22 @@ const RenovateDesignWebsite = () => {
                 className="text-blue-500 hover:underline"
               >
                 @renovatedesign_
+              </a>
+            </div>
+
+            {/* Facebook */}
+            <div className="text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i className="fab fa-facebook text-2xl text-blue-500"></i>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Facebook</h3>
+              <a 
+                href="https://www.facebook.com/profile.php?id=100068351521634" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-500 hover:underline"
+              >
+                @Renovate Design
               </a>
             </div>
 
