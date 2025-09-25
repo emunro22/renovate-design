@@ -174,6 +174,11 @@ const RenovateDesignWebsite = () => {
         From complete renovations to specialist joinery, we deliver exceptional craftsmanship across all areas 
         of home improvement with uncompromising attention to detail.
       </p>
+      <br></br>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We can organise and handle the project from start to finish. We have a team of trades that work together making your house become your home. Even if you have your own tradesmen you’d like to use on the project we can deal with the rest.
+      </p>
+
     </div>
 
     <div className="grid lg:grid-cols-2 gap-8 mb-16">
@@ -273,6 +278,10 @@ const RenovateDesignWebsite = () => {
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Skirting, facings & architrave</li>
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Balustrades & banisters</li>
             <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Sliding & fitted wardrobes</li>
+            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Internal & External Doors</li>
+            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Fencing & Decking</li>
+            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Panelling</li>
+            <li className="flex items-center text-gray-700"><div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>Shelving & Storage Solutions</li>
           </ul>
                   <Link
           to="/joinery"
@@ -337,6 +346,13 @@ const RenovateDesignWebsite = () => {
                 </p>
                 <p className="text-xl text-gray-300 mb-8  ">
                   Specialising in home improvements across Renfrewshire, Inverclyde, Glasgow and surrounding areas.
+                </p>
+                <p className="text-xl text-gray-300 mb-8  ">
+                  Even if the job isn’t joinery related, we can organise different trades for you!
+                  </p>
+                <br></br>
+                <p className="text-xl text-gray-300 mb-8  ">
+                This Includes: Plumbers / Gas Engineers, Electricians, Plasters, Tilers & Bricklayers                
                 </p>
               </div>
             </div>
