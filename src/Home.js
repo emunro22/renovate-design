@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Phone, Mail, MapPin, Clock, ChevronLeft, ChevronRight, Menu, X, 
   UtensilsCrossed, Bath, Hammer, Paintbrush, CheckCircle, Users
@@ -29,7 +29,6 @@ const staggerContainer = {
   visible: { transition: { staggerChildren: 0.18 } },
 };
 
-// ---------- Optional: slides (unused right now but kept) ----------
 const slides = [
   {
     title: "Renovate Design",
@@ -48,8 +47,26 @@ const slides = [
 const RenovateDesignWebsite = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
-  // Auto-rotate carousel (not shown, retained for future use)
+  // Logo splash animation (once per session)
+  useEffect(() => {
+    const hasLoaded = sessionStorage.getItem("hasLoaded");
+    if (!hasLoaded) {
+      setLoading(true);
+      const timer = setTimeout(() => {
+        setLoading(false);
+        setShowContent(true);
+        sessionStorage.setItem("hasLoaded", "true");
+      }, 2200); // Logo animation + fade out
+      return () => clearTimeout(timer);
+    } else {
+      setShowContent(true);
+    }
+  }, []);
+
+  // Auto-rotate carousel
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -62,94 +79,131 @@ const RenovateDesignWebsite = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-2">
-            {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <img 
-                src="/logo.png" 
-                alt="Renovate Design Logo" 
-                className="h-20 w-auto"
-              />
-            </div>
+      {/* Logo Splash Screen */}
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            key="splash"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-white"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
+          >
+            <motion.img
+              src="/logo.png"
+              alt="Renovate Design"
+              className="h-40 w-auto"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: [0, 1.15, 1],
+                opacity: [0, 1, 1]
+              }}
+              transition={{ 
+                duration: 1.4,
+                times: [0, 0.65, 1],
+                ease: [0.34, 1.56, 0.64, 1]
+              }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6 text-sm relative">
-              <a href="#home" className="text-gray-700 hover:text-blue-500 font-medium">Home</a>
-
-              {/* Services Dropdown */}
-              <div className="relative group">
-                <a
-                  href="#services"
-                  className="text-gray-700 hover:text-blue-500 font-medium flex items-center"
-                >
-                  Services ▾
-                </a>
-                <div className="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  <Link to="/kitchens" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kitchens</Link>
-                  <Link to="/bathrooms" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Bathrooms</Link>
-                  <Link to="/joinery" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Joinery</Link>
-                  <Link to="/interiors" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Interiors</Link>
-                </div>
+      {/* Main Content with Fade-In */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showContent ? 1 : 0 }}
+        transition={{ duration: 0.8, ease: "easeIn" }}
+      >
+        {/* Header */}
+        <header className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center py-2">
+              {/* Logo */}
+              <div className="flex items-center space-x-2">
+                <img 
+                  src="/logo.png" 
+                  alt="Renovate Design Logo" 
+                  className="h-20 w-auto"
+                />
               </div>
 
-              <a href="#about" className="text-gray-700 hover:text-blue-500 font-medium">About</a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-500 font-medium">Contact</a>
-            </nav>
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex items-center space-x-6 text-sm relative">
+                <a href="#home" className="text-gray-700 hover:text-blue-500 font-medium">Home</a>
 
-            {/* Phone Number */}
-            <div className="hidden md:flex items-center space-x-2 text-blue-500 text-sm">
-              <Phone className="w-4 h-4" />
-              <a 
-                href="tel:07505541466" 
-                className="font-medium hover:underline"
+                {/* Services Dropdown */}
+                <div className="relative group">
+                  <a
+                    href="#services"
+                    className="text-gray-700 hover:text-blue-500 font-medium flex items-center"
+                  >
+                    Services ▾
+                  </a>
+                  <div className="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <Link to="/kitchens" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kitchens</Link>
+                    <Link to="/bathrooms" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Bathrooms</Link>
+                    <Link to="/joinery" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Joinery</Link>
+                    <Link to="/interiors" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Interiors</Link>
+                    <Link to="/trade-supply" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Trade Supply</Link>
+                  </div>
+                </div>
+
+                <a href="#about" className="text-gray-700 hover:text-blue-500 font-medium">About</a>
+                <a href="#contact" className="text-gray-700 hover:text-blue-500 font-medium">Contact</a>
+              </nav>
+
+              {/* Phone Number */}
+              <div className="hidden md:flex items-center space-x-2 text-blue-500 text-sm">
+                <Phone className="w-4 h-4" />
+                <a 
+                  href="tel:07505541466" 
+                  className="font-medium hover:underline"
+                >
+                  07505 541466
+                </a>
+              </div>
+
+              {/* Mobile menu button */}
+              <button 
+                className="md:hidden p-2"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
               >
-                07505 541466
-              </a>
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
             </div>
-
-            {/* Mobile menu button */}
-            <button 
-              className="md:hidden p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <motion.div 
-          className="md:hidden fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <button 
-            onClick={() => setIsMenuOpen(false)}
-            className="absolute top-4 right-4 p-2"
-            aria-label="Close menu"
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <motion.div 
+            className="md:hidden fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <X className="w-6 h-6" />
-          </button>
-          <a href="#home" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Home</a>
-          <a href="#services" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Services</a>
-          <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">About</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Contact</a>
-          <a 
+            <button 
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-4 right-4 p-2"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <a href="#home" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Home</a>
+            <a href="#services" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Services</a>
+            <Link to="/trade-supply" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Trade Supply</Link>
+            <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">About</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Contact</a>
+            <a 
               href="tel:07505541466" 
               className="flex items-center space-x-2 text-blue-500 text-lg hover:underline"
             >
               <Phone className="w-5 h-5" />
               <span>07505 541466</span>
-          </a>
-        </motion.div>
-      )}
+            </a>
+          </motion.div>
+        )}
 
       {/* Hero Section */}
       <motion.section
@@ -167,7 +221,7 @@ const RenovateDesignWebsite = () => {
             </span>
           </motion.div>
 
-          {/* Logo (bigger now) */}
+          {/* Logo */}
           <motion.div className="mb-6 flex justify-center" variants={fadeInUp}>
             <img 
               src="/logo.png" 
@@ -222,7 +276,7 @@ const RenovateDesignWebsite = () => {
             </p>
             <br />
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We can organise and handle the project from start to finish. We have a team of trades that work together making your house become your home. Even if you have your own tradesmen you’d like to use on the project we can deal with the rest.
+              We can organise and handle the project from start to finish. We have a team of trades that work together making your house become your home. Even if you have your own tradesmen you'd like to use on the project we can deal with the rest.
             </p>
           </motion.div>
 
@@ -403,7 +457,7 @@ const RenovateDesignWebsite = () => {
               About Renovate Design
             </h2>
             <div className="max-w-4xl mx-auto">
-              <p className="ttext-xl text-gray-300 mb-8">
+              <p className="text-xl text-gray-300 mb-8">
                 Renovate Design is a home renovation company designated by design. We handle and organise your projects from start to finish and there is never a job too small!
               </p>
               <p className="text-xl text-gray-300 mb-8">
@@ -413,7 +467,7 @@ const RenovateDesignWebsite = () => {
                 Specialising in home improvements across Renfrewshire, Inverclyde, Glasgow and surrounding areas.
               </p>
               <p className="text-xl text-gray-300 mb-8">
-                Even if the job isn’t joinery related, we can organise different trades for you!
+                Even if the job isn't joinery related, we can organise different trades for you!
               </p>
               <br />
               <p className="text-xl text-gray-300 mb-8">
@@ -440,7 +494,7 @@ const RenovateDesignWebsite = () => {
                 <Clock className="w-8 h-8 text-blue-500" />
               </div>
               <h3 className="text-xl font-bold text-gray-300 mb-2">Reliability</h3>
-              <p className="text-gray-200">A reliable company that shows up when they say they will. Your time is valuable, we don’t want to waste it.</p>
+              <p className="text-gray-200">A reliable company that shows up when they say they will. Your time is valuable, we don't want to waste it.</p>
             </motion.div>
 
             <motion.div className="text-center" variants={fadeInUp}>
@@ -687,20 +741,21 @@ const RenovateDesignWebsite = () => {
                 </div>
               </div>
             </motion.div>
-            </motion.div> {/* ✅ closes the grid wrapper */}
+          </motion.div>
 
-            {/* Copyright */}
-            <motion.div
-              className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
-              variants={fadeInUp}
-            >
-              <p>
-                &copy; 2025 Renovate Design. All rights reserved. | Professional home renovations across Scotland.
-              </p>
-            </motion.div>
-          </div>
-        </motion.footer>
-      </div>
+          {/* Copyright */}
+          <motion.div
+            className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
+            variants={fadeInUp}
+          >
+            <p>
+              &copy; 2025 Renovate Design. All rights reserved. | Professional home renovations across Scotland.
+            </p>
+          </motion.div>
+        </div>
+      </motion.footer>
+      </motion.div>
+    </div>
   );
 };
 
