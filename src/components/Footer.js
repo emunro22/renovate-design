@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -29,6 +30,11 @@ function Footer() {
               <li>Bathrooms</li>
               <li>Joinery</li>
               <li>Interior Design</li>
+              <li>
+                <Link to="/trade-supply" className="hover:underline">
+                  Trade Supply
+                </Link>
+              </li>
             </ul>
           </div>
 
