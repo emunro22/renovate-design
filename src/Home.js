@@ -83,7 +83,12 @@ const RenovateDesignWebsite = () => {
                 {/* Phone Number */}
                 <div className="hidden md:flex items-center space-x-2 text-blue-500 text-sm">
                   <Phone className="w-4 h-4" />
-                  <span className="font-medium">07505 541466</span>
+                  <a 
+                    href="tel:07505541466" 
+                    className="font-medium hover:underline"
+                  >
+                    07505 541466
+                  </a>
                 </div>
 
                 {/* Mobile menu button */}
@@ -110,10 +115,13 @@ const RenovateDesignWebsite = () => {
               <a href="#services" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Services</a>
               <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">About</a>
               <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">Contact</a>
-              <div className="flex items-center space-x-2 text-blue-500 text-lg">
-                <Phone className="w-5 h-5" />
-                <span>07505 541466</span>
-              </div>
+              <a 
+                  href="tel:07505541466" 
+                  className="flex items-center space-x-2 text-blue-500 text-lg hover:underline"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>07505 541466</span>
+              </a>
             </div>
           )}
 
@@ -151,12 +159,18 @@ const RenovateDesignWebsite = () => {
 
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row justify-center gap-4">
-      <button className="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium text-sm md:text-base shadow-md transition-all">
+          <Link
+        to="/gallery"
+        className="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium text-sm md:text-base shadow-md transition-all"
+      >
         Explore Our Work →
-      </button>
-      <button className="inline-flex items-center justify-center border border-black text-black hover:bg-black hover:text-white px-6 py-3 rounded-md font-medium text-sm md:text-base shadow-md transition-all">
+      </Link>
+      <a 
+        href="tel:07505541466" 
+        className="inline-flex items-center justify-center border border-black text-black hover:bg-black hover:text-white px-6 py-3 rounded-md font-medium text-sm md:text-base shadow-md transition-all"
+      >
         Free Consultation
-      </button>
+      </a>
     </div>
   </div>
 </section>
@@ -547,7 +561,11 @@ const RenovateDesignWebsite = () => {
                     <li>Bathrooms</li>
                     <li>Joinery</li>
                     <li>Interior Design</li>
-                    <li>Trade Supply</li>
+                    <li>
+                    <Link to="/trade-supply" className="hover:underline">
+                      Trade Supply
+                    </Link>
+                  </li>
                   </ul>
                 </div>
 
