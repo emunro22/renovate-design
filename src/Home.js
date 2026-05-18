@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Phone, Mail, MapPin, Clock, ChevronLeft, ChevronRight, Menu, X, 
+  Phone, MapPin, Clock, Menu, X, 
   UtensilsCrossed, Bath, Hammer, Paintbrush, CheckCircle, Users
 } from 'lucide-react';
 import { Link } from "react-router-dom";
@@ -45,7 +45,7 @@ const slides = [
 ];
 
 const RenovateDesignWebsite = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [, setCurrentSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showContent, setShowContent] = useState(false);
@@ -59,7 +59,7 @@ const RenovateDesignWebsite = () => {
         setLoading(false);
         setShowContent(true);
         sessionStorage.setItem("hasLoaded", "true");
-      }, 2200); // Logo animation + fade out
+      }, 2200);
       return () => clearTimeout(timer);
     } else {
       setShowContent(true);
@@ -73,9 +73,6 @@ const RenovateDesignWebsite = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <div className="min-h-screen bg-white">
@@ -133,7 +130,7 @@ const RenovateDesignWebsite = () => {
 
                 {/* Services Dropdown */}
                 <div className="relative group">
-                  <a
+                  
                     href="#services"
                     className="text-gray-700 hover:text-blue-500 font-medium flex items-center"
                   >
@@ -718,7 +715,7 @@ const RenovateDesignWebsite = () => {
                 {/* Social Media */}
                 <div className="flex flex-col space-y-2 mt-4">
                   {/* Instagram */}
-                  <a
+                  
                     href="https://www.instagram.com/renovatedesign_?igsh=MTYzMmdsNWJuOGtuNA=="
                     target="_blank"
                     rel="noopener noreferrer"
@@ -729,7 +726,7 @@ const RenovateDesignWebsite = () => {
                   </a>
 
                   {/* TikTok */}
-                  <a
+                  
                     href="https://www.tiktok.com/@renovate.design?lang=en"
                     target="_blank"
                     rel="noopener noreferrer"
