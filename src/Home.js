@@ -129,14 +129,13 @@ const RenovateDesignWebsite = () => {
                 <a href="#home" className="text-gray-700 hover:text-blue-500 font-medium">Home</a>
 
                 {/* Services Dropdown */}
-                <div className="relative group">
-                  
-                    href="#services"
-                    className="text-gray-700 hover:text-blue-500 font-medium flex items-center"
-                  >
-                    Services ▾
-                  </a>
-                  <div className="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="relative group">
+                    <a
+                      href="#services"
+                      className="text-gray-700 hover:text-blue-500 font-medium flex items-center"
+                    >
+                      Services ▾
+                    </a>                  <div className="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                     <Link to="/kitchens" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Kitchens</Link>
                     <Link to="/bathrooms" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Bathrooms</Link>
                     <Link to="/joinery" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Joinery</Link>
@@ -715,24 +714,24 @@ const RenovateDesignWebsite = () => {
                 {/* Social Media */}
                 <div className="flex flex-col space-y-2 mt-4">
                   {/* Instagram */}
-                  
+                  <a
                     href="https://www.instagram.com/renovatedesign_?igsh=MTYzMmdsNWJuOGtuNA=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-gray-300 hover:text-blue-400"
-                  >
-                    <i className="fab fa-instagram text-xl mr-2 text-blue-500"></i>
+                  >                    
+                  <i className="fab fa-instagram text-xl mr-2 text-blue-500"></i>
                     <span>@renovatedesign_</span>
                   </a>
 
                   {/* TikTok */}
-                  
+                  <a
                     href="https://www.tiktok.com/@renovate.design?lang=en"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-gray-300 hover:text-blue-400"
-                  >
-                    <i className="fab fa-tiktok text-xl mr-2 text-blue-500"></i>
+                  >                    
+                  <i className="fab fa-tiktok text-xl mr-2 text-blue-500"></i>
                     <span>@renovate.design</span>
                   </a>
                 </div>
