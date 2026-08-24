@@ -3,9 +3,9 @@ import Gallery from "@/components/Gallery";
 import joineryService from "@/assets/joinery-service.jpg";
 
 export const metadata: Metadata = {
-  title: "Joinery Services in Glasgow",
+  title: "Joiner Near You in Glasgow",
   description:
-    "Fully qualified joiners covering flooring, fitted wardrobes, doors, decking and more across Glasgow, Renfrewshire and Inverclyde.",
+    "Looking for a joiner near you? Fully qualified joiners covering flooring, fitted wardrobes, doors, decking and more across Glasgow, Renfrewshire and Inverclyde.",
   alternates: { canonical: "/joinery" },
 };
 
@@ -16,7 +16,8 @@ export default function Joinery() {
         <h1 className="text-4xl font-bold text-gray-900 mb-6">Joinery</h1>
         <p className="text-lg text-gray-700 mb-8">
           Our qualified joiners provide everything from flooring to fitted
-          wardrobes, crafted to perfection.
+          wardrobes, crafted to perfection. If you&apos;re after a joiner near you, we cover
+          Glasgow, Renfrewshire and Inverclyde.
         </p>
         <Gallery images={[joineryService.src]} />
       </div>

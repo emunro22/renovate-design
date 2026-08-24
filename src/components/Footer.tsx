@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Phone, MapPin, Instagram } from "lucide-react";
 import { business } from "@/lib/business";
+import { towns } from "@/lib/locations";
 
 function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-12 mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
@@ -50,6 +51,20 @@ function Footer() {
               <li>
                 <Link href="/trade-supply" className="hover:underline">Trade Supply</Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Areas We Cover */}
+          <div>
+            <h4 className="font-bold text-lg mb-4">Areas We Cover</h4>
+            <ul className="space-y-2 text-gray-300">
+              {towns.map((town) => (
+                <li key={town.slug}>
+                  <Link href={`/areas/${town.slug}`} className="hover:underline">
+                    {town.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

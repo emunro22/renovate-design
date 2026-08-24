@@ -3,9 +3,9 @@ import Gallery from "@/components/Gallery";
 import kitchenService from "@/assets/kitchen-service.jpg";
 
 export const metadata: Metadata = {
-  title: "Kitchen Renovations in Glasgow",
+  title: "Kitchen Fitter & Kitchen Builder Near You in Glasgow",
   description:
-    "Complete kitchen renovations and worktop replacements across Glasgow and the West of Scotland, designed around your lifestyle and space.",
+    "Looking for a kitchen fitter or kitchen builder near you? We design and fit complete kitchens and worktop replacements across Glasgow, Renfrewshire and Inverclyde.",
   alternates: { canonical: "/kitchens" },
 };
 
@@ -16,7 +16,9 @@ export default function Kitchens() {
         <h1 className="text-4xl font-bold text-gray-900 mb-6">Kitchens</h1>
         <p className="text-lg text-gray-700 mb-8">
           From complete renovations to worktop replacements, our kitchen
-          services are designed around your lifestyle and space.
+          services are designed around your lifestyle and space. Whether you&apos;re after a
+          kitchen fitter or a kitchen builder near you, we cover Glasgow, Renfrewshire and
+          Inverclyde.
         </p>
         <Gallery images={[kitchenService.src]} />
       </div>

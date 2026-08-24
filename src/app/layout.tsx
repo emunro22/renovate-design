@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { business } from "@/lib/business";
+import { towns } from "@/lib/locations";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,7 +22,8 @@ export const metadata: Metadata = {
     images: ["/logo.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/logo.png", type: "image/png" }],
+    apple: "/logo.png",
   },
 };
 
@@ -37,9 +39,9 @@ const jsonLd = {
     addressRegion: "Scotland",
     addressCountry: "GB",
   },
-  areaServed: business.serviceAreas.map((area) => ({
+  areaServed: towns.map((town) => ({
     "@type": "City",
-    name: area,
+    name: town.name,
   })),
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
