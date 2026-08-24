@@ -1,6 +1,6 @@
-import React from "react";
-import { Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import { Phone, MapPin, Instagram } from "lucide-react";
+import { business } from "@/lib/business";
 
 function Footer() {
   return (
@@ -12,7 +12,7 @@ function Footer() {
             <div className="flex items-center space-x-3 mb-4">
               <img src="/logo.png" alt="Renovate Design Logo" className="h-12 w-auto" />
               <div>
-                <div className="font-bold text-lg">Renovate Design</div>
+                <div className="font-bold text-lg">{business.name}</div>
                 <div className="text-sm text-gray-400">Premium Home Renovations</div>
               </div>
             </div>
@@ -20,20 +20,35 @@ function Footer() {
               Professional home renovation company specializing in kitchens,
               bathrooms, joinery, and interior design across Glasgow and surrounding areas.
             </p>
+            <a
+              href={business.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-gray-300 hover:text-blue-400"
+            >
+              <Instagram className="w-5 h-5 mr-2 text-blue-500" />
+              <span>@renovatedesign_</span>
+            </a>
           </div>
 
           {/* Services */}
           <div>
             <h4 className="font-bold text-lg mb-4">Our Services</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Kitchens</li>
-              <li>Bathrooms</li>
-              <li>Joinery</li>
-              <li>Interior Design</li>
               <li>
-                <Link to="/trade-supply" className="hover:underline">
-                  Trade Supply
-                </Link>
+                <Link href="/kitchens" className="hover:underline">Kitchens</Link>
+              </li>
+              <li>
+                <Link href="/bathrooms" className="hover:underline">Bathrooms</Link>
+              </li>
+              <li>
+                <Link href="/joinery" className="hover:underline">Joinery</Link>
+              </li>
+              <li>
+                <Link href="/interiors" className="hover:underline">Interior Design</Link>
+              </li>
+              <li>
+                <Link href="/trade-supply" className="hover:underline">Trade Supply</Link>
               </li>
             </ul>
           </div>
@@ -44,11 +59,11 @@ function Footer() {
             <div className="space-y-3 text-gray-300">
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2 text-blue-500" />
-                <span>07505 541466</span>
+                <span>{business.phone}</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="w-4 h-4 mr-2 text-blue-500 mt-1" />
-                <span>Serving Glasgow, Renfrewshire, Inverclyde & Surrounding Areas</span>
+                <span>Serving {business.serviceAreas.join(", ")} & Surrounding Areas</span>
               </div>
             </div>
           </div>
@@ -56,7 +71,7 @@ function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Renovate Design. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>
