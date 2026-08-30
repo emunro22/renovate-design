@@ -74,6 +74,29 @@ export default async function TownPage({
         </h1>
         <p className="text-lg text-gray-700 mb-12 max-w-3xl">{town.intro}</p>
 
+        {town.slug === "glasgow" && (
+          <div className="flex flex-wrap gap-4 mb-12">
+            <Link
+              href="/kitchen-renovation-fitting-glasgow"
+              className="text-blue-500 font-medium hover:underline"
+            >
+              Kitchen renovation &amp; fitting in Glasgow →
+            </Link>
+            <Link
+              href="/bathroom-renovations-glasgow"
+              className="text-blue-500 font-medium hover:underline"
+            >
+              Bathroom renovations in Glasgow →
+            </Link>
+            <Link
+              href="/home-extensions-glasgow"
+              className="text-blue-500 font-medium hover:underline"
+            >
+              Home extensions in Glasgow →
+            </Link>
+          </div>
+        )}
+
         <div className="grid sm:grid-cols-2 gap-8 mb-16">
           {services.map(({ Icon, name, href, body }) => (
             <div key={name} className="bg-white rounded-2xl shadow-lg p-6">

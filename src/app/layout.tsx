@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 import { business } from "@/lib/business";
 import { towns } from "@/lib/locations";
 import "./globals.css";
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
+        <CookieConsent />
       </body>
     </html>
   );

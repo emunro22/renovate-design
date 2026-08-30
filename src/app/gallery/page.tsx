@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/gallery" },
 };
 
-const images = [work1, work2, work3, work4, work5, work6, work7, work8, work9].map((img) => img.src);
+const images = [work1, work2, work3, work4, work5, work6, work7, work8, work9];
 
 export default function GalleryPage() {
   return (
@@ -28,7 +28,7 @@ export default function GalleryPage() {
         <p className="text-lg text-gray-700 mb-8">
           Explore some of our recent renovation projects in kitchens, bathrooms, joinery, and interiors.
         </p>
-        <Gallery images={images} />
+        <Gallery images={images} altPrefix="Renovate Design completed project" />
       </div>
     </section>
   );

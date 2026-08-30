@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import bathroomService from "@/assets/bathroom-service.jpg";
 
@@ -20,7 +21,12 @@ export default function Bathrooms() {
           new bathroom. Searching for a bathroom fitter near you? We cover Glasgow,
           Renfrewshire and Inverclyde.
         </p>
-        <Gallery images={[bathroomService.src]} />
+        <Gallery images={[bathroomService]} altPrefix="Bathroom renovation in Glasgow" />
+        <p className="mt-8 text-gray-600">
+          <Link href="/bathroom-renovations-glasgow" className="text-blue-500 font-medium hover:underline">
+            Read more about bathroom renovations in Glasgow →
+          </Link>
+        </p>
       </div>
     </section>
   );

@@ -19,7 +19,7 @@ export default function Joinery() {
           wardrobes, crafted to perfection. If you&apos;re after a joiner near you, we cover
           Glasgow, Renfrewshire and Inverclyde.
         </p>
-        <Gallery images={[joineryService.src]} />
+        <Gallery images={[joineryService]} altPrefix="Joinery project in Glasgow" />
       </div>
     </section>
   );

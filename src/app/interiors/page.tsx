@@ -19,7 +19,7 @@ export default function Interiors() {
           with expert guidance on style and aesthetics. Searching for an interior designer near
           you? We cover Glasgow, Renfrewshire and Inverclyde.
         </p>
-        <Gallery images={[interiorService.src]} />
+        <Gallery images={[interiorService]} altPrefix="Interior design project in Glasgow" />
       </div>
     </section>
   );

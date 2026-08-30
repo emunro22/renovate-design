@@ -11,13 +11,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/interiors",
     "/gallery",
     "/trade-supply",
+    "/kitchen-renovation-fitting-glasgow",
+    "/bathroom-renovations-glasgow",
+    "/home-extensions-glasgow",
+    "/privacy-policy",
+    "/terms",
   ];
+
+  const lowPriorityRoutes = ["/privacy-policy", "/terms"];
 
   const pages = routes.map((route) => ({
     url: `${business.siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: route === "" ? 1 : 0.8,
+    priority: route === "" ? 1 : lowPriorityRoutes.includes(route) ? 0.3 : 0.8,
   }));
 
   const areaPages = towns.map((town) => ({

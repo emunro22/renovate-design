@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, MapPin, Instagram } from "lucide-react";
+import Image from "next/image";
+import { Phone, MapPin, Instagram, Star } from "lucide-react";
 import { business } from "@/lib/business";
 import { towns } from "@/lib/locations";
 
@@ -11,7 +12,7 @@ function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <img src="/logo.png" alt="Renovate Design Logo" className="h-12 w-auto" />
+              <Image src="/logo.png" alt="Renovate Design Logo" width={700} height={466} className="h-12 w-auto" />
               <div>
                 <div className="font-bold text-lg">{business.name}</div>
                 <div className="text-sm text-gray-400">Premium Home Renovations</div>
@@ -30,6 +31,17 @@ function Footer() {
               <Instagram className="w-5 h-5 mr-2 text-blue-500" />
               <span>@renovatedesign_</span>
             </a>
+            <div className="mt-4">
+              <a
+                href={business.reviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-gray-300 hover:text-blue-400"
+              >
+                <Star className="w-5 h-5 mr-2 text-blue-500" />
+                <span>Leave us a review</span>
+              </a>
+            </div>
           </div>
 
           {/* Services */}
@@ -50,6 +62,9 @@ function Footer() {
               </li>
               <li>
                 <Link href="/trade-supply" className="hover:underline">Trade Supply</Link>
+              </li>
+              <li>
+                <Link href="/home-extensions-glasgow" className="hover:underline">Home Extensions</Link>
               </li>
             </ul>
           </div>
@@ -87,6 +102,11 @@ function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved.</p>
+          <div className="mt-3 flex justify-center gap-4 text-sm">
+            <Link href="/privacy-policy" className="hover:underline hover:text-white">Privacy Policy</Link>
+            <span aria-hidden="true">&middot;</span>
+            <Link href="/terms" className="hover:underline hover:text-white">Terms &amp; Conditions</Link>
+          </div>
         </div>
       </div>
     </footer>

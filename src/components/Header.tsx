@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Menu, X, Instagram } from "lucide-react";
 import { business } from "@/lib/business";
 
@@ -11,6 +12,7 @@ const services = [
   { href: "/joinery", label: "Joinery" },
   { href: "/interiors", label: "Interiors" },
   { href: "/trade-supply", label: "Trade Supply" },
+  { href: "/home-extensions-glasgow", label: "Home Extensions" },
 ];
 
 function Header() {
@@ -22,7 +24,14 @@ function Header() {
         <div className="flex justify-between items-center py-2">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <img src="/logo.png" alt="Renovate Design Logo" className="h-16 w-auto" />
+            <Image
+              src="/logo.png"
+              alt="Renovate Design Logo"
+              width={700}
+              height={466}
+              className="h-16 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -55,6 +64,9 @@ function Header() {
 
             <a href="/#about" className="text-gray-700 hover:text-blue-500 font-medium transition-colors">
               About
+            </a>
+            <a href="/#faq" className="text-gray-700 hover:text-blue-500 font-medium transition-colors">
+              FAQ
             </a>
             <a href="/#contact" className="text-gray-700 hover:text-blue-500 font-medium transition-colors">
               Contact
@@ -105,6 +117,9 @@ function Header() {
           ))}
           <a href="/#about" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">
             About
+          </a>
+          <a href="/#faq" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">
+            FAQ
           </a>
           <a href="/#contact" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">
             Contact

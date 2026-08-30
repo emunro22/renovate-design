@@ -6,6 +6,7 @@ import {
   Phone, MapPin, Clock, UtensilsCrossed, Bath, Hammer, Paintbrush, CheckCircle, Users, Instagram,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import type { StaticImageData } from "next/image";
 
 import bathroom from "@/assets/bathroom.jpg";
@@ -15,6 +16,8 @@ import bathroomService from "@/assets/bathroom-service.jpg";
 import joineryService from "@/assets/joinery-service.jpg";
 import interiorService from "@/assets/interior-service.jpg";
 import { business } from "@/lib/business";
+import Faq from "@/components/Faq";
+import { homeFaqs } from "@/lib/faqs";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -51,13 +54,21 @@ function HomeContent() {
           <AnimatePresence mode="sync">
             <motion.div
               key={currentSlide}
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${heroSlides[currentSlide].src})` }}
+              className="absolute inset-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.45 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.4, ease: "easeInOut" }}
-            />
+            >
+              <Image
+                src={heroSlides[currentSlide]}
+                alt=""
+                fill
+                priority={currentSlide === 0}
+                sizes="100vw"
+                className="object-cover"
+              />
+            </motion.div>
           </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/60 to-gray-900/80" />
         </div>
@@ -77,9 +88,12 @@ function HomeContent() {
 
           {/* Logo */}
           <motion.div className="mb-6 flex justify-center" variants={fadeInUp}>
-            <img
+            <Image
               src="/logo.png"
               alt="Renovate Design Logo"
+              width={700}
+              height={466}
+              priority
               className="max-h-48 sm:max-h-56 w-auto drop-shadow-lg"
             />
           </motion.div>
@@ -158,7 +172,8 @@ function HomeContent() {
           >
             {/* Kitchens */}
             <motion.div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow hover:shadow-xl" variants={fadeInUp}>
-              <div className="h-64 bg-cover bg-center relative" style={{ backgroundImage: `url(${kitchenService.src})` }}>
+              <div className="h-64 relative">
+                <Image src={kitchenService} alt="Kitchen renovation in Glasgow" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black bg-opacity-40" />
                 <div className="absolute top-4 left-4 bg-orange-500 p-2 rounded">
                   <UtensilsCrossed className="w-6 h-6 text-white" />
@@ -187,7 +202,8 @@ function HomeContent() {
 
             {/* Bathrooms */}
             <motion.div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow hover:shadow-xl" variants={fadeInUp}>
-              <div className="h-64 bg-cover bg-center relative" style={{ backgroundImage: `url(${bathroomService.src})` }}>
+              <div className="h-64 relative">
+                <Image src={bathroomService} alt="Bathroom renovation in Glasgow" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black bg-opacity-40" />
                 <div className="absolute top-4 left-4 bg-orange-500 p-2 rounded">
                   <Bath className="w-6 h-6 text-white" />
@@ -225,7 +241,8 @@ function HomeContent() {
           >
             {/* Joinery */}
             <motion.div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow hover:shadow-xl" variants={fadeInUp}>
-              <div className="h-64 bg-cover bg-center relative" style={{ backgroundImage: `url(${joineryService.src})` }}>
+              <div className="h-64 relative">
+                <Image src={joineryService} alt="Joinery project in Glasgow" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black bg-opacity-40" />
                 <div className="absolute top-4 left-4 bg-orange-500 p-2 rounded">
                   <Hammer className="w-6 h-6 text-white" />
@@ -257,7 +274,8 @@ function HomeContent() {
 
             {/* Interior Design */}
             <motion.div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow hover:shadow-xl" variants={fadeInUp}>
-              <div className="h-64 bg-cover bg-center relative" style={{ backgroundImage: `url(${interiorService.src})` }}>
+              <div className="h-64 relative">
+                <Image src={interiorService} alt="Interior design project in Glasgow" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black bg-opacity-40" />
                 <div className="absolute top-4 left-4 bg-orange-500 p-2 rounded">
                   <Paintbrush className="w-6 h-6 text-white" />
@@ -370,6 +388,8 @@ function HomeContent() {
           </motion.div>
         </div>
       </motion.section>
+
+      <Faq items={homeFaqs} />
 
       {/* Contact Section */}
       <motion.section

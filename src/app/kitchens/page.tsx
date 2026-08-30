@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import kitchenService from "@/assets/kitchen-service.jpg";
 
@@ -20,7 +21,12 @@ export default function Kitchens() {
           kitchen fitter or a kitchen builder near you, we cover Glasgow, Renfrewshire and
           Inverclyde.
         </p>
-        <Gallery images={[kitchenService.src]} />
+        <Gallery images={[kitchenService]} altPrefix="Kitchen renovation in Glasgow" />
+        <p className="mt-8 text-gray-600">
+          <Link href="/kitchen-renovation-fitting-glasgow" className="text-blue-500 font-medium hover:underline">
+            Read more about kitchen renovation &amp; fitting in Glasgow →
+          </Link>
+        </p>
       </div>
     </section>
   );
