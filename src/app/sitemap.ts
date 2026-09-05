@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { business } from "@/lib/business";
 import { towns } from "@/lib/locations";
+import { blogPosts } from "@/lib/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -14,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kitchen-renovation-fitting-glasgow",
     "/bathroom-renovations-glasgow",
     "/home-extensions-glasgow",
+    "/blog",
     "/privacy-policy",
     "/terms",
   ];
@@ -34,5 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...pages, ...areaPages];
+  const blogPages = blogPosts.map((post) => ({
+    url: `${business.siteUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.publishDate),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+
+  return [...pages, ...areaPages, ...blogPages];
 }

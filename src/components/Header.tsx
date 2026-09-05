@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Instagram } from "lucide-react";
+import { Phone, Menu, X, Instagram, Facebook } from "lucide-react";
 import { business } from "@/lib/business";
 
 const services = [
@@ -65,6 +65,9 @@ function Header() {
             <a href="/#about" className="text-gray-700 hover:text-blue-500 font-medium transition-colors">
               About
             </a>
+            <Link href="/blog" className="text-gray-700 hover:text-blue-500 font-medium transition-colors">
+              Blog
+            </Link>
             <a href="/#faq" className="text-gray-700 hover:text-blue-500 font-medium transition-colors">
               FAQ
             </a>
@@ -93,14 +96,34 @@ function Header() {
             </a>
           </div>
 
-          {/* Mobile Nav button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile social icons + Nav button */}
+          <div className="md:hidden flex items-center space-x-1">
+            <a
+              href={business.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Renovate Design on Instagram"
+              className="p-2 text-gray-500 hover:text-blue-500 transition-colors"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href={business.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Renovate Design on Facebook"
+              className="p-2 text-gray-500 hover:text-blue-500 transition-colors"
+            >
+              <Facebook className="w-5 h-5" />
+            </a>
+            <button
+              className="p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -118,6 +141,9 @@ function Header() {
           <a href="/#about" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">
             About
           </a>
+          <Link href="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">
+            Blog
+          </Link>
           <a href="/#faq" onClick={() => setIsMenuOpen(false)} className="text-lg text-gray-700">
             FAQ
           </a>
@@ -133,6 +159,16 @@ function Header() {
           >
             <Instagram className="w-5 h-5" />
             <span>Instagram</span>
+          </a>
+          <a
+            href={business.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsMenuOpen(false)}
+            className="flex items-center space-x-2 text-gray-700 text-lg"
+          >
+            <Facebook className="w-5 h-5" />
+            <span>Facebook</span>
           </a>
           <a href={business.phoneHref} className="flex items-center space-x-2 text-blue-500 text-lg hover:underline">
             <Phone className="w-5 h-5" />

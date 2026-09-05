@@ -66,6 +66,9 @@ function Footer() {
               <li>
                 <Link href="/home-extensions-glasgow" className="hover:underline">Home Extensions</Link>
               </li>
+              <li>
+                <Link href="/blog" className="hover:underline">Blog</Link>
+              </li>
             </ul>
           </div>
 

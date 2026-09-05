@@ -11,7 +11,7 @@ import kitchen from "@/assets/kitchen.jpg";
 export const metadata: Metadata = {
   title: "Kitchen Renovation & Fitting in Glasgow",
   description:
-    "Kitchen renovation and fitting across Glasgow — design, supply and installation of complete kitchens and worktop replacements for tenements, terraces and family homes.",
+    "Kitchen renovation and fitting across Glasgow: design, supply and installation of complete kitchens and worktop replacements for tenements, terraces and family homes.",
   alternates: { canonical: "/kitchen-renovation-fitting-glasgow" },
 };
 
@@ -36,7 +36,7 @@ export default function KitchenRenovationGlasgow() {
         <p className="text-lg text-gray-700 mb-8 max-w-3xl">
           Whether you&apos;re after a full kitchen renovation or a kitchen fitter to install a
           brand-new suite, we design, supply and fit kitchens across the West End, Southside and
-          greater Glasgow area — from Victorian tenements to modern new-builds. Every project is
+          greater Glasgow area, from Victorian tenements to modern new-builds. Every project is
           managed from first sketch to final finish, with worktop replacements and smaller
           adaptations handled just as carefully as a complete refit.
         </p>

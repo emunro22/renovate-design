@@ -103,13 +103,13 @@ function HomeContent() {
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 leading-tight"
             variants={fadeInUp}
           >
-            Kitchens, bathrooms &amp; interiors —{" "}
+            Kitchens, bathrooms &amp; interiors:{" "}
             <span className="text-blue-400">designed and built without compromise.</span>
           </motion.h1>
 
           <motion.p className="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto mb-8" variants={fadeInUp}>
             From first sketch to final finish, we manage every trade so your renovation is
-            seamless, on time and built to last — across Glasgow, Renfrewshire &amp; Inverclyde.
+            seamless, on time and built to last, across Glasgow, Renfrewshire &amp; Inverclyde.
           </motion.p>
 
           {/* Service Tags */}

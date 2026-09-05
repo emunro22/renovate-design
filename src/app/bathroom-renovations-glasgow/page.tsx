@@ -11,7 +11,7 @@ import bathroom from "@/assets/bathroom.jpg";
 export const metadata: Metadata = {
   title: "Bathroom Renovations in Glasgow",
   description:
-    "Full bathroom renovations across Glasgow — rip-out to finishing touches, wet wall and tiled options, space-saving layouts for tenements, terraces and family homes.",
+    "Full bathroom renovations across Glasgow, from rip-out to finishing touches, with wet wall and tiled options and space-saving layouts for tenements, terraces and family homes.",
   alternates: { canonical: "/bathroom-renovations-glasgow" },
 };
 

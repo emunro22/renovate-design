@@ -119,7 +119,7 @@ export default async function TownPage({
             Get a free consultation in {town.name}
           </h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            No job too small — whether it&apos;s a full renovation or a single room, get in touch
+            No job too small: whether it&apos;s a full renovation or a single room, get in touch
             for a free, no-obligation quote.
           </p>
           <a

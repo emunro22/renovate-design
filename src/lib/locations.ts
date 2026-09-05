@@ -46,7 +46,7 @@ export const towns: Town[] = [
     name: "Glasgow",
     region: "Glasgow",
     intro:
-      "From the West End to the Southside, Glasgow is where a large share of our renovation projects happen — tenements, townhouses and everything in between.",
+      "From the West End to the Southside, Glasgow is where a large share of our renovation projects happen: tenements, townhouses and everything in between.",
   },
 ];
 

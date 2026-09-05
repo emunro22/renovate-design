@@ -12,7 +12,7 @@ export const homeFaqs: FaqItem[] = [
   {
     question: "Do you handle full renovation projects or just one room?",
     answer:
-      "Both. We organise and manage complete home renovations from start to finish, but there's no job too small — we're just as happy fitting a single new worktop or door as we are running a full multi-room refit.",
+      "Both. We organise and manage complete home renovations from start to finish, but there's no job too small; we're just as happy fitting a single new worktop or door as we are running a full multi-room refit.",
   },
   {
     question: "Can you coordinate other trades, like plumbers or electricians?",
@@ -35,12 +35,12 @@ export const kitchenGlasgowFaqs: FaqItem[] = [
   {
     question: "How much does a kitchen renovation cost in Glasgow?",
     answer:
-      "Cost depends on the size of the kitchen, the brand and finish you choose, and whether structural work is needed. We supply and fit a range of brands to suit different budgets — get in touch for a free, no-obligation quote based on your space.",
+      "Cost depends on the size of the kitchen, the brand and finish you choose, and whether structural work is needed. We supply and fit a range of brands to suit different budgets, so get in touch for a free, no-obligation quote based on your space.",
   },
   {
     question: "Do you just fit kitchens, or design them too?",
     answer:
-      "Both. We design a kitchen layout suited to your lifestyle and space, then supply and fit it — from a complete new kitchen to smaller adaptations like a worktop replacement.",
+      "Both. We design a kitchen layout suited to your lifestyle and space, then supply and fit it, from a complete new kitchen to smaller adaptations like a worktop replacement.",
   },
   {
     question: "How long does a kitchen fitting take?",
@@ -58,12 +58,12 @@ export const bathroomGlasgowFaqs: FaqItem[] = [
   {
     question: "What's included in a full bathroom renovation?",
     answer:
-      "A complete renovation covers rip-out of the old suite, first-fix plumbing and electrics, wet wall or tiling, the new suite installation, and finishing touches like silicone sealing — all managed for you from start to finish.",
+      "A complete renovation covers rip-out of the old suite, first-fix plumbing and electrics, wet wall or tiling, the new suite installation, and finishing touches like silicone sealing, all managed for you from start to finish.",
   },
   {
     question: "Can you make a small bathroom feel bigger?",
     answer:
-      "Yes — layout and fixture choice make a big difference. We regularly redesign bathroom layouts in Glasgow tenement flats and older homes to maximise space and practicality.",
+      "Yes, layout and fixture choice make a big difference. We regularly redesign bathroom layouts in Glasgow tenement flats and older homes to maximise space and practicality.",
   },
   {
     question: "Do you offer budget-friendly bathroom options as well as high-end finishes?",
@@ -86,7 +86,7 @@ export const extensionsGlasgowFaqs: FaqItem[] = [
   {
     question: "Can you handle the interior finish once the extension is built?",
     answer:
-      "Yes — once the structure is up, we carry out the joinery, flooring, and interior design work to fully finish the space, whether it's an extended kitchen, a new bedroom or additional living space.",
+      "Yes, once the structure is up, we carry out the joinery, flooring, and interior design work to fully finish the space, whether it's an extended kitchen, a new bedroom or additional living space.",
   },
   {
     question: "What areas do you cover for home extensions?",

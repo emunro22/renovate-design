@@ -7,7 +7,7 @@ import { business } from "@/lib/business";
 export const metadata: Metadata = {
   title: "Home Extensions in Glasgow",
   description:
-    "Project-managed home extensions in Glasgow, Renfrewshire and Inverclyde — from structural build through to joinery, kitchens, bathrooms and interior finish.",
+    "Project-managed home extensions in Glasgow, Renfrewshire and Inverclyde, from structural build through to joinery, kitchens, bathrooms and interior finish.",
   alternates: { canonical: "/home-extensions-glasgow" },
 };
 
@@ -24,7 +24,7 @@ const stages = [
   {
     Icon: Hammer,
     title: "Structural build",
-    body: "We bring in and manage the trades needed for the structural work — from foundations to roofing — so your extension is built to last.",
+    body: "We bring in and manage the trades needed for the structural work, from foundations to roofing, so your extension is built to last.",
   },
   {
     Icon: UtensilsCrossed,
@@ -53,7 +53,7 @@ export default function HomeExtensionsGlasgow() {
         <p className="text-lg text-gray-700 mb-12 max-w-3xl">
           Need more space rather than a full move? We project manage home extensions across
           Glasgow, Renfrewshire and Inverclyde, coordinating every trade from the structural build
-          through to the finished kitchen, bathroom or living space — so you deal with one point of
+          through to the finished kitchen, bathroom or living space, so you deal with one point of
           contact throughout.
         </p>
 

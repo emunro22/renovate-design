@@ -45,8 +45,8 @@ export default function Terms() {
           <h2 className="text-2xl font-bold text-gray-900 pt-4">Renovation work</h2>
           <p>
             Where we agree to carry out renovation, joinery, kitchen, bathroom or interior design
-            work for you, the specific terms of that job — including price, timescale, materials
-            and payment schedule — will be agreed directly with you before work begins. These
+            work for you, the specific terms of that job, including price, timescale, materials
+            and payment schedule, will be agreed directly with you before work begins. These
             website terms do not replace or override any separate written agreement for project
             work.
           </p>
